@@ -1,0 +1,267 @@
+*{
+    list-style: none;
+	    /*글씨체 변경*/
+	@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');	
+	font-family: 'Nanum Gothic', sans-serif;
+}/* 
+Theme Color :
+B5c7d3
+658DC6
+
+*/
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: aliceblue;
+  margin: 0;
+  height: 100vh;
+}
+.wrapper {
+	height: 100%;
+	 width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper .logo {
+	margin-right: 50px;
+}
+
+.wrapper .content {
+	background-color: white;
+    padding: 30px 15px;
+    border: 3px solid #658DC6;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    min-width: 200px;
+}
+
+.wrapper .content button {
+	padding: 15px;
+      width: 150px;
+      border: 1px solid gray-color;
+      background: transparent;
+      border-radius: 50px;
+      color: #333;
+      cursor: pointer;
+      
+}
+
+.wrapper .content button:focus {
+	outline:none;
+}
+
+
+
+.wrapper .content header {
+	text-align: center;
+}
+
+.wrapper .content header h2 {
+        margin-top: 0;
+        color: #658DC6;
+}
+
+.wrapper .social-login {
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+}
+
+.wrapper .social-login button {
+		display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid gray;
+        transition: background .5s;       
+        -webkit-transition: background .5s;
+}
+.wrapper .social-login button:first-child  {
+	margin-right: 10px;
+}
+	
+.wrapper .social-login button:hover  {
+background-color: gray-color;	}
+
+.wrapper .social-login button span  {
+          font-size: 17px;
+          color: #777;
+          margin-left: 5px;
+}
+
+
+.wrapper .login-form {
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+	
+}
+
+.wrapper .login-form .input-group{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 310px;	
+	
+}
+
+.wrapper .login-form .input-group input{
+          padding: 15px;
+          font-size: 13px;
+          border: 1px solid gray;
+          border-radius: 50px;
+          /* tranistion: border .5s; */
+          -webkit-tranistion: border .5s;	
+	
+}
+
+.wrapper .login-form .input-group input:focus{
+            outline: 0;
+            border-color: #658DC6;
+	
+}
+
+.wrapper .login-form label { 
+          color: black;
+          font-size: 12px;
+          margin-bottom: 3px;
+          margin-left: 16px;	
+	
+}
+
+.wrapper .login-form button { 
+          background-color: #658DC6;
+          border: unset;
+          color: #fff;
+          align-self: center;
+          margin-top: 15px;
+          transition: background .5s;
+          -webkit-transition: background .5s;
+}
+
+.wrapper .login-form button:hover{ 
+         background-color: #B5c7d3;
+}
+
+.wrapper footer {
+      padding-top: 15px;
+      text-align: center;	
+}
+
+.wrapper footer a {
+	    color: #999;
+        text-decoration: none;
+        font-size: 11px;
+        margin-left: 10px;
+}
+
+@media screen and (max-width: 720px) {
+	.wrapper .content {
+	      padding-right: 0;
+      padding-left: 0;
+      margin: 0 10px;
+    }
+}
+
+/* header */
+header{
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    color: #00bd39;
+}
+header .logo{
+    float: left;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+header .sidemenu{
+    float: right;
+}
+header .sidemenu > li{
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size : 15px;
+}
+header .sidemenu > li:hover{
+    color: green;
+}
+
+/* //header */
+
+/* nav */
+nav{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #cbcbcb;
+}
+nav .leftMenu{
+    float: left;
+    height: 100%;
+    font-size: 15px;
+    font-weight: bold;
+}
+nav .leftMenu > li{
+    width: auto;
+    padding: 0 20px;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+nav .leftMenu > li:hover > .dropmenu{
+    visibility: visible;
+    	z-index: 11;
+    
+}
+nav .leftMenu > li > .dropmenu{
+    display: inline-block;
+    width: 150px;
+    clear: both;
+    position: absolute;
+    top: 59px;
+    left: 0;
+    text-align: left;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+}
+nav .leftMenu > li > .dropmenu > span{
+    width: 100%;
+    display: inline-block;
+    padding-left: 20px;
+    background: #00bd39;
+    color: white;
+    font-weight: 400;
+}
+nav .leftMenu > li > .dropmenu > span:hover{
+    font-weight: 700;
+}
+
+nav .leftMenu > li:hover{
+    color: #00bd39;
+    font-weight: 700;
+    border-bottom: 3px solid #00bd39;
+}
+nav .leftMenu > li.active{
+    color: #00bd39;
+    font-weight: 700;
+    border-bottom: 3px solid #00bd39;
+}
+
+
+
+/* //nav */
+
+
+
+
