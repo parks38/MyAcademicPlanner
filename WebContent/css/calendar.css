@@ -1,0 +1,257 @@
+@charset "UTF-8";
+
+/* 
+Theme Color :
+B5c7d3
+658DC6
+
+*/
+* {
+  list-style: none;
+  /*글씨체 변경*/
+  @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+  font-family: "Nanum Gothic", sans-serif;
+}
+.container {
+  padding: 0 20px;
+}
+
+li {
+  float: left;
+}
+a {
+  /*     width: 100%;
+      height: 100%; */
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+body {
+  min-height: 100vh;
+  position: relative;
+}
+input {
+  font-size: 18px;
+}
+.clear {
+  clear: both;
+}
+/* //기본 설정 */
+
+/* header */
+header {
+  width: 100%;
+  height: 65px;
+  line-height: 75px;
+  color: #658dc6;
+}
+header .logo {
+  float: left;
+  font-size: 30px;
+  font-weight: 700;
+  display: flex;
+}
+
+header .sidemenu {
+  float: right;
+  margin-right: 5%;
+  margin-top: 20px;
+}
+header .sidemenu > li {
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  list-style-type: none;
+}
+header .sidemenu > li:hover {
+  color: #658dc6;
+}
+
+/* //header */
+
+/* nav */
+nav {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #cbcbcb;
+}
+nav .leftMenu {
+  float: left;
+  height: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 5%;
+  margin-top: 0px;
+}
+nav .leftMenu > li {
+  width: auto;
+  padding: 0 20px;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  list-style-type: none;
+}
+nav .leftMenu > li:hover > .dropmenu {
+  visibility: visible;
+  z-index: 11;
+}
+nav .leftMenu > li > .dropmenu {
+  display: inline-block;
+  width: 150px;
+  clear: both;
+  position: absolute;
+  top: 59px;
+  left: 0;
+  text-align: left;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+}
+nav .leftMenu > li > .dropmenu > span {
+  width: 100%;
+  display: inline-block;
+  padding-left: 20px;
+  background: #658dc6;
+  color: white;
+  font-weight: 400;
+}
+nav .leftMenu > li > .dropmenu > span:hover {
+  font-weight: 700;
+}
+
+nav .leftMenu > li:hover {
+  color: #658dc6;
+  font-weight: 700;
+  border-bottom: 3px solid #658dc6;
+}
+nav .leftMenu > li.active {
+  color: #658dc6;
+  font-weight: 700;
+  border-bottom: 3px solid #658dc6;
+}
+
+iframe {
+  width: 1000px;
+  position: absolute;
+  left: 150px;
+  margin-top: 25px;
+}
+
+.wrapper3 .intro h1 {
+  font-size: 22px;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  padding: 5px 15px;
+  /* text 에 맞도록 vorder-bottom */
+  display: inline-block;
+  border-bottom: 2px solid lightgray;
+  margin-bottom: 0px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.helpText p {
+  font-family: "Muli-SemiBold";
+  font-size: 13px;
+  color: #658dc6;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#enter {
+  border: none;
+  padding: 10px 15px;
+  margin-top: -5px;
+  border-radius: 5px;
+  color: white;
+  background-color: #658dc6;
+  transition: all 0.75s ease;
+  -webkit-transition: all 0.75s ease;
+  -moz-transition: all 0.75s ease;
+  -ms-transition: all 0.75s ease;
+  -o-transition: all 0.75 ease;
+  font-weight: normal;
+}
+
+#enter:hover {
+  background-color: #02798f;
+  color: #ffcd5d;
+}
+
+.wrapper3 ul {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.wrapper3 #myList li {
+  list-style: none;
+  text-align: center;
+  padding: 10px 20px;
+  color: black;
+  text-transform: capitalize;
+  font-weight: 600;
+  border: 2px solid #025f70 !important;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background: #b5c7d3;
+  width: 75%;
+  transition: all 0.75s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5 ease;
+}
+
+.wrapper3 #myList li:hover {
+  background: #658dc6;
+  color: white;
+}
+
+.wrapper3 #myList li > button {
+  font-weight: normal;
+  background: none;
+  border: none;
+  margin-left: 10%;
+  color: #658dc6;
+  font-weight: 800;
+}
+
+.wrapper3 #myList li > button:hover {
+  font-weight: normal;
+  background: none;
+  border: none;
+  margin-left: 10%;
+  color: white;
+  font-weight: 800;
+}
+
+.wrapper3 input {
+  border-radius: 5px;
+  min-width: 71%;
+  padding: 5px;
+  border: 2px solid lightgray;
+}
+
+.doneList {
+  background: #51df70 !important;
+  color: #00891e;
+}
+
+.delete {
+  display: none;
+}
+
+/* wrapper3 css */
+.wrapper3 {
+  height: 680px;
+  width: 420px;
+  float: right;
+  margin-right: 10%;
+  margin-top: 48px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}

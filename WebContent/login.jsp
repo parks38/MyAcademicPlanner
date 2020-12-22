@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />     
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/login.css">
 
-<title>Insert title here</title>
+<title>로그인</title>
 </head>
 <body>
 	
@@ -22,7 +25,7 @@
         <button><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google" width="20"><span>Google</span></button>
         <button><img src="https://cdn.freebiesupply.com/logos/large/2x/facebook-2-logo-svg-vector.svg" alt="facebook" width="10"><span>Facebook</span></button>
       </div>
-      <form action="" class="login-form">
+      <form method="post"   action="${contextPath}/users/login.do" class="login-form">
         <div class="input-group">
           <label for="username">아이디</label>
           <input type="text" placeholder="Username" id="username">
@@ -35,7 +38,7 @@
       </form>
     </section>
     <footer>
-    	<a href = "signup.jsp">회원가입 </a>
+    	<a href = "sign-up.jsp">회원가입 </a>
         <a href = "" > 비밀번호 확인</a>
     </footer>
   </div>

@@ -10,3 +10,8 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
+
+  <!--  welcome file list 
+  		태그는 사용자가 웹 어플리케이션의 루트컨텍스트 종료 즉 서버의 루트 주소만을 입렷하여 접근했을 경우 가장
+  		처음에 띄워줄 경로를 설정하는데 서버는 <welcome-file></welcome-file>
+  		차례로 읽어가며 해당 자원이 존재하는 경우 그 자원을 사용자에게 도려주게 됩니다.  -->
