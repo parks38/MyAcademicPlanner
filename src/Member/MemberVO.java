@@ -3,8 +3,8 @@ package Member;
 import java.util.Date;
 
 public class MemberVO {
-	private String id;
-    private String pwd;
+	private String userid;
+    private String password;
     private String name;
     private String email;
     private String mycourse;
@@ -14,34 +14,36 @@ public class MemberVO {
     	System.out.println("MemberVO 생성자 호출");
     }
     
-    public MemberVO(String id, String pwd, String name, String email, String mycourse) {
-    	this.id = id;
-    	this.pwd = pwd;
+    
+    public MemberVO(String userid, String password, String name, String email, String mycourse) {
+    	this.userid = userid;
+    	this.password = password;
     	this.name = name;
     	this.email = email;
     	this.mycourse = mycourse;
     }
+   
     
-    public MemberVO(String id, String pwd, String name, String email, String mycourse, Date joinDate) {
-    	this.id = id;
-    	this.pwd = pwd;
+    public MemberVO(String userid, String password, String name, String email, String mycourse, Date joinDate) {
+    	this.userid = userid;
+    	this.password = password;
     	this.name = name;
     	this.email = email;
     	this.mycourse = mycourse;
     	this.joinDate = joinDate;
     }
     
-	public String getId() {
-		return id;
+	public String getUserid() {
+		return userid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getName() {
 		return name;

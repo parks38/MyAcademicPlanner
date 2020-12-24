@@ -14,25 +14,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- STYLE CSS -->
-<link rel="stylesheet" href="css/style.css?after" type="text/css" 
-       charset="utf-8"/>    <!-- JQUERY -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" charset="utf-8"/>    
+<!-- JQUERY -->
       <script
   src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
   crossorigin="anonymous"></script>
+        <!-- JQUERY -->
+      <script src="js/jquery-3.3.1.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
+  <%
+	// 로그인이 된 경우 
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+	}
+%>
     <!-- header -->
     <header>
       <div class="container">
         <div class="logo">
-          <img style="width: 150px; height: 150px" src="image/logo.png" />
+          <img style="width: 150px; height: 150px" src="${pageContext.request.contextPath}/image/logo.png" />
         </div>
+        <%
+            //로그인 되어있지 않을 경우
+            if(userID == null) {
+        %>
         <ul class="sidemenu">
           <li><a href="sign-up.jsp">회원가입</a></li>
           <li><a href="login.jsp">로그인</a></li>
         </ul>
+        <%
+            } else {
+        %>
+         <ul class="sidemenu">
+          <li><a href=""> <%= userID %> 님</a></li>
+          <li><a href="${pageContext.request.contextPath}/users/logout.do"> 로그아웃 </a></li>
+        </ul>       
+        <%
+            }
+        %>
       </div>
     </header>
     <!-- //header -->
@@ -265,9 +288,6 @@
         </div>
       </div>
       <!-- wrapper class end -->
-
-      <!-- JQUERY -->
-      <script src="js/jquery-3.3.1.min.js"></script>
 
       <!-- JQUERY STEP -->
       <script src="js/jquery.steps.js"></script>

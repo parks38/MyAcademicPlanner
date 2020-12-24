@@ -51,8 +51,8 @@ public class MemberDAO {
                 String course = rs.getString("course");
                 Date joinDate = rs.getDate("joinDate");
                 MemberVO vo = new MemberVO();
-                vo.setId(id);
-                vo.setPwd(pwd);
+                vo.setUserid(id);
+                vo.setPassword(pwd);
                 vo.setName(name);
                 vo.setEmail(email);
                 vo.setJoinDate(joinDate);
@@ -72,8 +72,8 @@ public class MemberDAO {
     public void addMember(MemberVO m) {
         try {
         	connDB();
-        	String id = m.getId();
-            String pwd = m.getPwd();
+        	String id = m.getUserid();
+            String pwd = m.getPassword();
             String name = m.getName();
             String email = m.getEmail();
             String mycourse = m.getMycourse();
@@ -119,13 +119,13 @@ public class MemberDAO {
     }
     // 전달된 수정회원 정보를 update 통해서 수정 
     public void modMember(MemberVO memberVO) {
-		String id = memberVO.getId();
-		String pwd = memberVO.getPwd();
+		String id = memberVO.getUserid();
+		String pwd = memberVO.getPassword();
 		String name = memberVO.getName();
 		String email = memberVO.getEmail();
 		try {
 			connDB();
-			String query = "update t_menber set pwd=?,name=?,email=?  where id=?";
+			String query = "update user_member set password=?,name=?,email=?  where userid=?";
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, pwd);
@@ -144,7 +144,7 @@ public class MemberDAO {
 	public void delMember(String id) {
 		try {
 			connDB();
-			String query = "delete from t_menber where id=?";
+			String query = "delete from user_member where userid=?";
 			//delete문을 통해 ID의 회원 정보를 삭제 
 			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
@@ -153,5 +153,25 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	// 회원 로그인에 대해 체크
+	public int loginCheck (String id, String pwd) {
+		try {
+			connDB();
+			String query = "select password from user_member where userid =?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			//아이디가 존재하는 경우
+			if(rs.next()) {
+				if(rs.getString(1).equals(pwd)) return 1; // 로그인 성공 
+				else return 0; // 비밀번호 불일치 
+			}
+			return -1; //아이디가 존재하지 않는경우 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -2; //데이터베이스 오
 	}
 }

@@ -28,11 +28,11 @@
       <form method="post"   action="${contextPath}/users/login.do" class="login-form">
         <div class="input-group">
           <label for="username">아이디</label>
-          <input type="text" placeholder="Username" id="username">
+          <input type="text" placeholder="Username" name = "username" id="username">
         </div>
         <div class="input-group">
           <label for="password">비밀번호</label>
-          <input type="password" placeholder="Password" id="password">
+          <input type="password" placeholder="Password" name = "password" id="password">
         </div>
         <div class="input-group"><button>로그인</button></div>
       </form>
