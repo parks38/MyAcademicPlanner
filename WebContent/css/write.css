@@ -152,6 +152,59 @@ ul {
   border: none;
   cursor: pointer;
 }
+.bbs_content {
+  margin-left: 375px;
+}
+
+.bbs_title {
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.post-title {
+  border: 1px solid #b5c7d3;
+  border-radius: 10px;
+}
+
+.attachment_btns {
+  background-color: aliceblue;
+  color: #658dc6;
+  border: 1px solid #658dc6;
+  border-radius: 10px;
+  margin-left: 70px;
+  /* top, right, bottom, left */
+  padding: 3px 10px 3px 10px;
+  font-size: 15px !important;
+}
+
+.attachment_btns:hover {
+  background-color: #b5c7d3;
+  color: white;
+  border: 1px solid #658dc6;
+}
+
+.attachment label {
+  margin-left: 50px;
+}
+
+.preview {
+  margin-left: 520px;
+  margin-top: -25px;
+  border-radius: 5px;
+}
+
+.filebox {
+  margin-bottom: 20px;
+}
+
+.upload-name {
+  font-size: 13px;
+  border: 1px solid #b5c7d3;
+  border-radius: 5px;
+  padding: 2px;
+  width: 150px;
+  margin-left: 10px;
+}
 
 .widget-post {
   width: 800px;
@@ -159,10 +212,11 @@ ul {
   height: auto;
   border: 1px solid #eaeaea;
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(100, 90, 90, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: #fff;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .widget-post__header {
@@ -179,15 +233,18 @@ ul {
 
 .widget-post__content {
   width: 100%;
-  height: 50%;
+  height: 95%;
 }
 .widget-post__textarea {
-  height: 500px;
-  padding: 10px;
-  width: 95%;
+  height: 200px;
+  margin: 15px 30px 15px 30px;
+  padding: 20px;
+  width: 85%;
   border: none;
   font-size: 16px;
   resize: none;
+  border: 1px solid #b5c7d3;
+  border-radius: 10px;
 }
 .widget-post__textarea:focus {
   outline: none;
@@ -215,24 +272,25 @@ ul {
 
   background-color: #f5f5f5;
   color: #a2a6a7;
+  box-shadow: 0 4px 8px 0 rgba(100, 90, 90, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .post-actions__attachments {
   display: inline-block;
   width: 60%;
 }
-.attachments--btn {
+.seen--btn {
   background-color: aliceblue;
   color: #658dc6;
   border: 1px solid #658dc6;
   border-radius: 10px;
   font-weight: 200;
-}
-
-.attachments--btn:hover {
-  background-color: #b5c7d3;
-  color: black;
-  border: 1px solid #658dc6;
-  border-radius: 10px;
+  font-size: 13px;
+  width: 50px;
+  padding: 5px 8px 5px 8px;
+  text-align: center;
+  margin-left: 20px;
+  cursor: grab;
 }
 
 .post-actions__widget {
@@ -247,6 +305,7 @@ ul {
   color: #fff;
 
   border-radius: 1.5em;
+  font-size: 15px;
 }
 .post-actions__publish:hover {
   width: 120px;
@@ -279,4 +338,8 @@ ul {
 
   position: absolute;
   top: 0;
+}
+
+.widget-post__form {
+  height: 600px;
 }

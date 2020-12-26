@@ -44,7 +44,7 @@
         %>
         <ul class="sidemenu">
           <li><a href="sign-up.jsp">회원가입</a></li>
-          <li><a href="login.jsp">로그인</a></li>
+          <li><a href="${pageContext.request.contextPath}/users/login.do">로그인</a></li>
         </ul>
         <%
             } else {
@@ -65,7 +65,7 @@
       <div class="container">
         <ul class="leftMenu">
           <li class="active"><a href="index.jsp"> 나의 현황</a></li>
-          <li><a href="bulletin.jsp">나만의 노트</a></li>
+          <li><a href="${pageContext.request.contextPath}/boards/listArticles.do">나만의 노트</a></li>
           <li class="dropBox">
             <a href="calendar.jsp">달력</a>
           </li>
@@ -290,8 +290,8 @@
       <!-- wrapper class end -->
 
       <!-- JQUERY STEP -->
-      <script src="js/jquery.steps.js"></script>
-      <script src="js/main.js"></script>
+      <script src="${pageContext.request.contextPath}/js/jquery.steps.js"></script>
+      <script src="${pageContext.request.contextPath}/js/main.js"></script>
       <!-- Template created and distributed by Colorlib -->
 
       <!-- Box 3 -->

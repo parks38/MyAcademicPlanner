@@ -13,7 +13,7 @@
     <header>
       <div class="container">
         <div class="logo">
-          <img style="width: 150px; height: 150px" src="images/logo.png" />
+          <img style="width: 150px; height: 150px" src="${pageContext.request.contextPath}/image/logo.png" />
         </div>
         <ul class="sidemenu">
           <li><a href="sign-up.jsp">회원가입</a></li>

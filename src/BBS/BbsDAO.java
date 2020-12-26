@@ -1,0 +1,131 @@
+package BBS;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
+
+public class BbsDAO {
+	private Connection conn;
+	private static final String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static final String user = "map";
+	private static final String pwd = "map";
+    private PreparedStatement pstmt;
+    
+    // DB connect 
+	private void connDB() {
+		try {
+			// Driver는 oracle sql 에 접속하게 해주는 매개체 같은 역할 
+			// 동적 로딩 방식 
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("Oracle 드라이버 로딩 성공");
+			conn = DriverManager.getConnection(url, user, pwd);
+			// : DriverManager에 등록된 각 드라이버들을 사용해서 식별한다.
+			System.out.println("Connection 생성 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public List selectAllArticles() {
+		List articlesList = new ArrayList();
+		try {
+			connDB();
+			String query = "SELECT bbs_num,userid,bbs_title,bbs_content,bbs_re_count, bbs_date, bbs_seen" 
+			             + " from bbs"
+					     + " ORDER BY bbs_num DESC";
+			//오라클의 계층형 sql문을 실행한다
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int bbs_num = rs.getInt("bbs_num");
+				String userid = rs.getString("userid");
+				String bbs_title = rs.getString("bbs_title");
+				String bbs_content = rs.getString("bbs_content");
+				int bbs_re_count = rs.getInt("bbs_re_count");
+				Date bbs_date = rs.getDate("bbs_date");
+				String bbs_seen = rs.getString("bbs_seen");
+				BbsVO article = new BbsVO();
+				article.setBbs_num(bbs_num);
+				article.setUserid(userid);
+				article.setBbs_title(bbs_title);
+				article.setBbs_content(bbs_content);
+				article.setBbs_re_count(bbs_re_count);
+				article.setBbs_seen(bbs_seen);
+				article.setBbs_date(bbs_date);
+				articlesList.add(article);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return articlesList;
+	}
+	
+	public int insertNewArticle(BbsVO article) {
+		int bbs_num = getNewArticleNO();
+		
+		try {
+			connDB();
+			String bbs_title = article.getBbs_title();
+			String bbs_content = article.getBbs_content();
+			String bbs_id = article.getUserid();
+			String imageFileName = article.getBbs_file2();
+			String file = article.getBbs_file();
+			String bbs_seen = article.getBbs_seen();
+			int bbs_re_count = 0;		
+			
+			String query = "INSERT INTO bbs (bbs_num, bbs_title, bbs_content, bbs_file, bbs_file2, bbs_seen, userid, bbs_re_count)"
+					+ " VALUES (?, ? ,?, ?, ?, ?, ?, ?, ?)";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bbs_num);
+			pstmt.setString(2, bbs_title);
+			pstmt.setString(3, bbs_content);
+			pstmt.setString(4, file);
+			pstmt.setString(5, imageFileName);
+			pstmt.setString(6, bbs_seen);
+			pstmt.setString(7, bbs_id);
+			pstmt.setInt(8, bbs_re_count);
+			pstmt.executeUpdate();
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return bbs_num;
+	}
+	
+	// 게시글 번호 생성하기 
+	private int getNewArticleNO() {
+		try {
+			connDB();
+			String query = "SELECT  max(bbs_num) from bbs ";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery(query);
+			if (rs.next())
+				return (rs.getInt(1) + 1);
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+	
+	
+	
+}

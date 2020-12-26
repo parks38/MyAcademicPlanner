@@ -94,7 +94,7 @@ public class MemberController extends HttpServlet{
 		            memberDAO.addMember(memberVO); 
 		          //회원 등록후 다시 회원 목록을 출력 
 		            PrintWriter pw = response.getWriter();
-	        		pw.print("<script>" + "alert('새글을 추가했습니다.');" + "location.href = '" + request.getContextPath() 
+	        		pw.print("<script>" + "location.href = '" + request.getContextPath() 
 	        				+ "/index.jsp';" + "</script>");
 	        		nextPage = "/index.jsp";
 	        		return;
@@ -109,7 +109,7 @@ public class MemberController extends HttpServlet{
 				pw.println("</script>");
 				return;
 	    		
-	        }
+	        } 
 	        RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
         	dispatch.forward(request, response);
         } catch (Exception e) {
