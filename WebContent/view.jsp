@@ -67,11 +67,12 @@
           </h2>
         </div>
         <div class="widget-post__content">
+          <form name="frmArticle" method="post"  action="${contextPath}"  enctype="multipart/form-data">
             <table width="90%"> 
                 <tr> 
                     <td  width="0">&nbsp;</td> 
-                    <td align="center" width="80"><b>제목</b></td> 
-                    <td width="500"><%-- <%=idx%> --%></td> 
+                    <td align="center" width="100"><b>제목</b></td> 
+                    <td width="500"><input type=text value="${article.title }"  name="title"  id="i_title" disabled /></td>	
                     <td width="0">&nbsp;</td> 
                 </tr> 
                 <tr height="1" bgcolor="#dddddd">
@@ -81,8 +82,8 @@
                 </tr> 
                 <tr> 
                     <td width="0">&nbsp;</td> 
-                    <td align="center" width="76"><b>글쓴이</b></td> 
-                    <td width="500"><%-- <%=hit%> --%></td> 
+                    <td align="center" width="100"><b>글쓴이</b></td> 
+                    <td width="500"><input type=text value="${article.id }" name="writer"  disabled />/td> 
                     <td width="0">&nbsp;</td> 
                 </tr> 
                 <tr height="1" bgcolor="#dddddd">
@@ -92,24 +93,36 @@
                 </tr> 
                 <tr> 
                     <td width="0">&nbsp;</td> 
-                    <td align="center" width="76"><b>글 번호</b></td> 
-                    <td width="500"><%-- <%=name%> --%></td> 
+                    <td align="center" width="100"><b>글 번호</b></td> 
+                     <td width="700"><input type="text"  value="${article.articleNO }"  disabled /> </td>
+   					 <td width="500"><input type="hidden" name="articleNO" value="${article.articleNO}"  />	 </td>
                     <td width="0">&nbsp;</td> 
                 </tr> 
                 <tr height="1" bgcolor="#dddddd">
                     <td colspan="4" width="407"></td>
                 </tr> 
                 <tr> <td width="0">&nbsp;</td> 
-                    <td align="center" width="76"><b>작성일</b></td> 
-                    <td width="500"><%-- <%=time%> --%></td> 
+                    <td align="center" width="100"><b>작성일</b></td> 
+                    <td width="500"><input type=text value="<fmt:formatDate value="${article.writeDate}" />" disabled /></td> 
                     <td width="0">&nbsp;</td> 
                 </tr> 
                 <tr height="1" bgcolor="#dddddd">
                     <td colspan="4" width="407"></td>
                 </tr> 
                 <tr> <td width="0">&nbsp;</td> 
-                    <td align="center" width="76"><b>첨부 파일</b></td> 
-                    <td width="500"><%-- <%=title%> --%></td> 
+                    <td align="center" width="100"><b>첨부 파일</b></td> 
+                    <td width="500"><input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" /> </td>
+    				<td><img style = "width: 500px;" src="${contextPath}/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFileName}" id="preview"  /><br></td> 
+                    <td width="0">&nbsp;</td> 
+                </tr> 
+                
+                <tr height="1" bgcolor="#dddddd">
+                    <td colspan="4" width="407"></td>
+                </tr> 
+                <tr> <td width="0">&nbsp;</td> 
+                    <td align="center" width="100"><b>첨부 이미지 </b></td> 
+                    <td width="500"><input  type= "hidden"   name="originalFileName" value="${article.imageFileName }" /> </td>
+    				<td><img style = "width: 500px;" src="${contextPath}/download.do?articleNO=${article.articleNO}&imageFileName=${article.imageFileName}" id="preview"  /><br></td> 
                     <td width="0">&nbsp;</td> 
                 </tr> 
                 <tr height="1" bgcolor="#dddddd">
@@ -117,8 +130,8 @@
                     </td>
                 </tr> 
                 <tr> <td width="0"></td> 
-                    <td width="600" colspan="2" height="400"><%-- <%=memo %> --%> </tr> 
-          
+                    <td width="600" colspan="2" height="400">
+                    	<textarea rows="20" cols="60"  name="content"  id="i_content"  disabled >${article.content }</textarea> 
                     </td> 
                 </tr> 
             </table>
@@ -127,6 +140,7 @@
           <button class="btn post-actions__publish">이전</button>
           <button class="btn post-actions__publish">목록</button>
           <button class="btn post-actions__publish">수정</button>
+          <button class="btn post-actions__publish">삭제</button>
           <button class="btn post-actions__publish">이후</button>
         </div>
       </div>
