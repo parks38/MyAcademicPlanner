@@ -56,13 +56,13 @@
     <nav>
       <div class="container">
         <ul class="leftMenu">
-          <li class="active"><a href="index.jsp"> 나의 현황</a></li>
-          <li><a href="${pageContext.request.contextPath}/boards/listArticles.do">나만의 노트</a></li>
+          <li ><a href="${pageContext.request.contextPath}/boards/index.do"> 나의 현황</a></li>
+          <li class="active"><a href="${pageContext.request.contextPath}/boards/listArticles.do">나만의 노트</a></li>
           <li class="dropBox">
-            <a href="calendar.jsp">달력</a>
+            <a href="${pageContext.request.contextPath}/calendar.jsp">달력</a>
           </li>
           <li class="dropBox">
-            <a href="student_list.jsp">학생 정보 </a>
+            <a href="${pageContext.request.contextPath}/student_list.jsp">학생 정보 </a>
           </li>
         </ul>
       </div>
@@ -96,8 +96,8 @@
 <%-- 					    	<c:if test = "${article.bbs_seen == '공개'}">                    
  --%>	                            <tr align = "center"> <!-- 계시글 출력  현재의 index 의 정보 -->
 	                                <td>${articleNum.count}</td>
-	                                <td> ${article.bbs_title} </td>
-	                                <td> <a class='cls1' href="${pageContext.request.contextPath}/boards/viewArticle.do?articleNO=${article.bbs_num}">${article.bbs_title }</a></td>
+	                                <td> <a class='cls1' href="${pageContext.request.contextPath}/boards/viewArticle.do?articleNO=${article.bbs_num}">${article.bbs_title} </a></td>
+	                                <td> <a class='cls1' href="${pageContext.request.contextPath}/boards/viewArticle.do?articleNO=${article.bbs_num}">${article.bbs_content }</a></td>
 	                                <td>${article.userid }</td>
 	                                <td> ${ article.bbs_date} </td>
 	                               

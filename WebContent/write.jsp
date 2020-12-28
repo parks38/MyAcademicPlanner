@@ -118,7 +118,7 @@
         </h2>
       </div>
       <form id="widget-form" class="widget-post__form" method="post" name="bbs_form" action="${contextPath}/boards/addArticles.do" enctype="multipart/form-data">
-        <input type = "hidden" name = "bbs_id" value  = " <%=userID %>" >
+        <input type = "hidden" name = "userid" value  = " <%=userID %>" >
         
         <div class="widget-post__content">
           <label for="post-content" class="sr-only">오늘의 자료를 업로드하세요 </label>

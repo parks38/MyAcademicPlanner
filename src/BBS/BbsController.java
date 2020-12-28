@@ -71,7 +71,7 @@ public class BbsController extends HttpServlet{
         		String bbs_file = articleMap.get("file");
         		String bbs_file2 = articleMap.get("imageFileName");
         		String bbs_seen = articleMap.get("seen");
-        		String bbs_id = articleMap.get("bbs_id");
+        		String bbs_id = articleMap.get("userid");
         	
         		bbsVO.setBbs_title(bbs_title);
         		bbsVO.setBbs_content(bbs_content);
@@ -85,18 +85,18 @@ public class BbsController extends HttpServlet{
         		
                 // 파일을 첨부한 경우에만 수행합니다.
         		if(bbs_file != null && bbs_file.length() != 0) {
-        			File srcFile = new File(ARTICLE_IMAGE_REPO + "/" + "temp" + "/" + bbs_file);
+        			File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + bbs_file);
         			//CURR_IMAGE_REPO_PATH의 경로 하위에 글 번호로 폴더를 생성합니다.
-        			File destDir = new File(ARTICLE_IMAGE_REPO + "/" + articleNO);
+        			File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
         			destDir.mkdirs();
         			//temp 폴더의 파일을 글 번호를 이름으로 하는 폴더로 이동시킨다. 
                     FileUtils.moveFileToDirectory(srcFile, destDir, true);
                     srcFile.delete();
         		}
         		if(bbs_file2 != null && bbs_file2.length() != 0) {
-        			File srcFile = new File(ARTICLE_IMAGE_REPO + "/" + "temp" + "/" + bbs_file2);
+        			File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + bbs_file2);
         			//CURR_IMAGE_REPO_PATH의 경로 하위에 글 번호로 폴더를 생성합니다.
-        			File destDir = new File(ARTICLE_IMAGE_REPO + "/" + articleNO);
+        			File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
         			destDir.mkdirs();
         			//temp 폴더의 파일을 글 번호를 이름으로 하는 폴더로 이동시킨다. 
                     FileUtils.moveFileToDirectory(srcFile, destDir, true);
@@ -110,8 +110,54 @@ public class BbsController extends HttpServlet{
         		nextPage = "/listArticles.do";  
         		return;
         	}  else if (action.equals("/viewArticle.do")) {
+        		// 글 상세창을 요구할 경우 articleNO 를 받아온다 
+        		String articleNO = request.getParameter("articleNO");
+        		// articleNO 에 대한 글 정보 조회하고 article 속성으로바인딩 
+        		bbsVO = bbsService.viewArticle(Integer.parseInt(articleNO));
+        		request.setAttribute("article", bbsVO);
+        		nextPage = "/view.jsp";
+        	} else if(action.equals("/modArticle.do")) {
+        		Map<String, String> articleMap = upload(request, response);
+				int articleNO = Integer.parseInt(articleMap.get("bbs_num"));
+				bbsVO.setBbs_num(articleNO);
+				String title = articleMap.get("title");
+				String content = articleMap.get("content");
+				String file = articleMap.get("file");
+				String userid = articleMap.get("userid");
+				bbsVO.setUserid(userid);
+				bbsVO.setBbs_title(title);
+				bbsVO.setBbs_content(content);
+				bbsVO.setBbs_file(file);
+				bbsService.modArticle(bbsVO);
+				if (file != null && file.length() != 0) {
+					String originalFileName = articleMap.get("originalFileName");
+					File srcFile = new File(ARTICLE_IMAGE_REPO + "/" + "temp" + "/" + file);
+        			//CURR_IMAGE_REPO_PATH의 경로 하위에 글 번호로 폴더를 생성합니다.
+        			File destDir = new File(ARTICLE_IMAGE_REPO + "/" + articleNO);
+					destDir.mkdirs();
+					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+					File oldFile = new File(ARTICLE_IMAGE_REPO + "/" + articleNO + "/" + originalFileName);
+					oldFile.delete();
+				} 
+				PrintWriter pw = response.getWriter();
+				pw.print("<script>" + "  alert('글을 수정했습니다.');" + " location.href='" + request.getContextPath()
+						+ "/boards/viewArticle.do?articleNO=" + articleNO + "';" + "</script>");
+				return;
+        	} else if (action.equals("/removeArticle.do")) {
+				int articleNO = Integer.parseInt(request.getParameter("bbs_num"));
+				bbsService.removeArticle(articleNO);
+				File imgDir = new File(ARTICLE_IMAGE_REPO + "/" + articleNO);
+					if (imgDir.exists()) {
+						FileUtils.deleteDirectory(imgDir);
+					}
 
-        	}
+				PrintWriter pw = response.getWriter();
+				pw.print("<script>" + "  alert('글을 삭제했습니다.');" + " location.href='" + request.getContextPath()
+						+ "/boards/listArticles.do';" + "</script>");
+				return;
+			} else if (action.equals("/index.do")) {
+				nextPage = "/index.jsp";
+			}
         	RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
         	dispatch.forward(request, response);
         } catch (Exception e) {
@@ -147,7 +193,7 @@ public class BbsController extends HttpServlet{
 								System.out.println(fileItem.getFieldName());
 								articleMap.put(fileItem.getFieldName(), fileName);
 								//익스플로어에서 업로드 파일의 경로 제거 후 map 파일명 저장 
-								File uploadFile = new File(currentDirPath + "/temp/" + fileName);
+								File uploadFile = new File(currentDirPath + "\\temp\\" + fileName);
 								fileItem.write(uploadFile);
 							} 
 						}

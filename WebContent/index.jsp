@@ -43,8 +43,8 @@
             if(userID == null) {
         %>
         <ul class="sidemenu">
-          <li><a href="sign-up.jsp">회원가입</a></li>
-          <li><a href="${pageContext.request.contextPath}/users/login.do">로그인</a></li>
+          <li><a href="${pageContext.request.contextPath}/sign-up.jsp">회원가입</a></li>
+          <li><a href="${pageContext.request.contextPath}/login.jsp">로그인</a></li>
         </ul>
         <%
             } else {
@@ -64,13 +64,13 @@
     <nav>
       <div class="container">
         <ul class="leftMenu">
-          <li class="active"><a href="index.jsp"> 나의 현황</a></li>
+          <li class="active"><a href="${pageContext.request.contextPath}/index.jsp"> 나의 현황</a></li>
           <li><a href="${pageContext.request.contextPath}/boards/listArticles.do">나만의 노트</a></li>
           <li class="dropBox">
-            <a href="calendar.jsp">달력</a>
+            <a href="${pageContext.request.contextPath}/calendar.jsp">달력</a>
           </li>
           <li class="dropBox">
-            <a href="student_list.jsp">학생 정보 </a>
+            <a href="${pageContext.request.contextPath}/student_list.jsp">학생 정보 </a>
           </li>
         </ul>
       </div>
