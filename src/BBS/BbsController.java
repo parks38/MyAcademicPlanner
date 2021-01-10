@@ -22,6 +22,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
 
+
 @WebServlet("/boards/*")
 public class BbsController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -51,6 +52,8 @@ public class BbsController extends HttpServlet{
         HttpSession session; // userid 저장해주기 위한 
         try {
         	List<BbsVO> articlesList = new ArrayList<BbsVO>();
+    		List<BbsVO> commentList = new ArrayList<BbsVO>();
+
         	if(action == null) {
         		articlesList = bbsService.listArticles();
         		request.setAttribute("articlesList", articlesList);
@@ -110,11 +113,16 @@ public class BbsController extends HttpServlet{
         		nextPage = "/listArticles.do";  
         		return;
         	}  else if (action.equals("/viewArticle.do")) {
+        		
         		// 글 상세창을 요구할 경우 articleNO 를 받아온다 
-        		String articleNO = request.getParameter("articleNO");
+        		int articleNO = Integer.parseInt(request.getParameter("articleNO"));
+        		System.out.println(articleNO);
         		// articleNO 에 대한 글 정보 조회하고 article 속성으로바인딩 
-        		bbsVO = bbsService.viewArticle(Integer.parseInt(articleNO));
+        		bbsVO = bbsService.viewArticle(articleNO);
+        		commentList = bbsService.findComments(articleNO);
+        	    
         		request.setAttribute("article", bbsVO);
+        		request.setAttribute("commentList", commentList);
         		nextPage = "/view.jsp";
         	} else if(action.equals("/modArticle.do")) {
         		Map<String, String> articleMap = upload(request, response);
@@ -157,6 +165,32 @@ public class BbsController extends HttpServlet{
 				return;
 			} else if (action.equals("/index.do")) {
 				nextPage = "/index.jsp";
+			} else if (action.equals("/addComment.do")) {
+				int bbs_num = Integer.parseInt(request.getParameter("bbs_num"));
+				System.out.println(bbs_num);
+				String bbs_title = request.getParameter("title");
+				String bbs_content = request.getParameter("bbs_content");
+				String bbs_seen = request.getParameter("bbs_seen");
+				String userid = request.getParameter("userid");
+				
+				bbsVO.setParentNO(bbs_num);
+				bbsVO.setBbs_title(bbs_title);
+				bbsVO.setBbs_content(bbs_content);
+				bbsVO.setBbs_seen(bbs_seen);
+				bbsVO.setUserid(userid);
+				
+				bbsService.addComment(bbsVO);
+				nextPage = "/boards/viewArticle.do?articleNO=" + bbs_num;
+			} else if (action.equals("/removeComment.do")) {
+				int bbs_num = Integer.parseInt(request.getParameter("bbs_num"));
+				int commentNO = Integer.parseInt(request.getParameter("bbs_commentNO"));
+				bbsService.removeComment(commentNO);
+				nextPage = "/boards/viewArticle.do?articleNO=" + bbs_num;
+				System.out.println(nextPage);
+				PrintWriter pw = response.getWriter();
+				pw.print("<script>" + "location.href='" + request.getContextPath()
+						+ "/boards/viewArticle.do?articleNO=" + bbs_num+ "'"+"</script>");
+				return;
 			}
         	RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
         	dispatch.forward(request, response);

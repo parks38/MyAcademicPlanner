@@ -44,11 +44,11 @@ public class MemberDAO {
             // SQL 결과 담을 객체
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                String id = rs.getString("id");
-                String pwd = rs.getString("pwd");
+                String id = rs.getString("userid");
+                String pwd = rs.getString("password");
                 String name = rs.getString("name");
                 String email = rs.getString("email");
-                String course = rs.getString("course");
+                String mycourse = rs.getString("mycourse");
                 Date joinDate = rs.getDate("joinDate");
                 MemberVO vo = new MemberVO();
                 vo.setUserid(id);
@@ -56,6 +56,7 @@ public class MemberDAO {
                 vo.setName(name);
                 vo.setEmail(email);
                 vo.setJoinDate(joinDate);
+                vo.setMycourse(mycourse);
                 list.add(vo);
             }
             

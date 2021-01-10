@@ -35,4 +35,17 @@ public class BbsService {
 		// 관련 게시글 삭제하기 
 		bbsDAO.deleteArticle(articleNO);
 	}
+	
+	public int addComment(BbsVO bbsvo) {
+		return bbsDAO.insertNewComment(bbsvo);
+	}
+	
+	public List<BbsVO> findComments(int articleNO) {
+		List<BbsVO> commentList = bbsDAO.findAllComments(articleNO); 
+		return commentList;
+	}
+	
+	public void removeComment (int commentNO) {
+		bbsDAO.deleteComment(commentNO);
+	}
 }

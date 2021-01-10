@@ -128,13 +128,7 @@
               <label class="bbs_title"> <b>글 제목</b></label>
             </td>
             <td colspan="2">
-              <input
-                class="post-title"
-                type="text"
-                size="67"
-                maxlength="500"
-                name="title"
-              />
+              <input class="post-title" type="text"  size="67"  maxlength="500"  name="title" />
             </td>
             <br /><br />
           </tr>
@@ -143,12 +137,7 @@
               <label class="bbs_content"> <b>글 내용 </b></label>
             </td>
             <br />
-            <textarea
-              name="content"
-              id="post-content"
-              class="widget-post__textarea scroller"
-              placeholder="share your moments"
-            ></textarea>
+            <textarea name="content" id="post-content" class="widget-post__textarea scroller" placeholder="share your moments"></textarea>
           </tr>
           <div class="filebox">
             <label class="attachment_btns" for="ex_filename">업로드</label>
@@ -162,23 +151,10 @@
               </td>
               <!-- readURL - 업로드전 이미지 화인  -->
               <td>
-                <input
-                  type="file"
-                  id="imageFile"
-                  name="imageFileName"
-                  accept="image/png, image/jpeg, image/jpg"
-                  multiple
-                  onchange="readURL(this);"
-                />
+                <input type="file" id="imageFile" name="imageFileName" accept="image/png, image/jpeg, image/jpg" multiple onchange="readURL(this);" />
               </td>
               <td align="right">
-                <img
-                  id="preview"
-                  class="preview"
-                  src="${pageContext.request.contextPath}/image/preview.png"
-                  width="200"
-                  height="200"
-                />
+                <img id="preview" class="preview"  src="${pageContext.request.contextPath}/image/preview.png"  width="200"  height="200" />
               </td>
             </tr>
           </div>

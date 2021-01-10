@@ -287,6 +287,7 @@ function finishStep(wizard, state)
     {
         currentStep.addClass("done").removeClass("error");
         wizard.triggerHandler("finished", [state.currentIndex]);
+
     }
     else
     {
@@ -1071,7 +1072,7 @@ function renderPagination(wizard, options, state)
 
         if (options.enableFinishButton)
         {
-            buttons += buttonTemplate.format("finish", options.labels.finish);
+           
         }
 
         if (options.enableCancelButton)

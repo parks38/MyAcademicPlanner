@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/sign-up.css?after" type="text/css" 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sign-up.css" type="text/css" 
        charset="utf-8"/>
 <title>Insert title here</title>
 </head>
@@ -37,19 +37,19 @@
 				
 				  <label for="course"><b>수강하는 강좌 :</b></label>
 					  <select name="course" id="cars">
-					    <option value="backend">백엔드/ 서버</option>
-					    <option value="frontend">웹 디자인/ 프로트앤드</option>
-					    <option value="bigdata">빅데이터</option>
-					    <option value="single">단과반</option>
+					    <option value=백엔드/서버>백엔드/ 서버</option>
+					    <option value="웹 디자인/프로트앤드">웹 디자인/ 프로트앤드</option>
+					    <option value="빅데이터">빅데이터</option>
+					    <option value="단과반">단과반</option>
 					  </select>
 				
-			</div>
-			<input type="submit"value="회원 가입">
+				</div>
+				<input type="submit"value="회원 가입">
 			    <footer>
 			    	<a href = "login.jsp">로그인 하기 </a>
 			    </footer>
 
-		</form>
+			</form>
 
 
 	</div>

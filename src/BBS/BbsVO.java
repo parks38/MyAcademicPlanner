@@ -15,6 +15,8 @@ public class BbsVO {
 	private String userid;
 	private int bbs_re_count;
 	private String bbs_seen;
+	private int bbs_commentNO;
+	private int parentNO;
 	
 	public BbsVO() {
 		
@@ -94,6 +96,24 @@ public class BbsVO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+
+	public int getBbs_commentNO() {
+		return bbs_commentNO;
+	}
+
+	public void setBbs_commentNO(int bbs_commentNO) {
+		this.bbs_commentNO = bbs_commentNO;
+	}
+
+	public int getParentNO() {
+		return parentNO;
+	}
+
+	public void setParentNO(int parentNO) {
+		this.parentNO = parentNO;
+	}
+
+
 	
 	
 	

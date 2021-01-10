@@ -52,56 +52,61 @@
     ></iframe>
 
     <!--  todo list  -->
-    <div class="wrapper3">
-      <div class="row">
-        <div class="intro col-12">
-          <h1>To Do 리스트 :</h1>
-          <div>
-            <div class="border1"></div>
+<div class="wrapper3">
+            <div class="row">
+              <div class="intro col-12">
+                <h1>To Do 리스트 :</h1>
+                <div>
+                  <div class="border1"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="helpText col-12">
+                <p id="first">
+                  끝내야 하는 일의 목록을 적어주어. 
+                </p>
+                <p id="second" >생산성 있게 업무 관리를 하세요 </p>
+                <p id="third">
+                  일정 목록을 자주 체크하여 할일에 집중해보세요  </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+              <form  method = "post" action="${contextPath}/userinfo/addtodolist.do">
+              	<input type = "hidden" name = "userid" value = "${sessionScope.userID }">
+              	<input type = "hidden" name = "content" value = "todolist">
+                <input id="userInput"  name = "userInput" type="text"  placeholder="할일 입력..." maxlength="27" />
+                <button id="enter">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Empty List -->
+            <div class="row">
+              <div class="listItems col-12">
+              
+              <c:choose>
+              	<c:when test = "${doList != null}">
+              		<c:forEach var = "todo" items = "${doList }" >
+              			<table class = "to_table">
+              				<tr class = "list_t">
+              					<td width = "300px"> ${todo.todolist } </td>
+              					<td> <a  style = "color: #658dc6;" href = "${pageContext.request.contextPath}/userinfo/removetodo.do?todolist=${todo.todolist}&userid=${sessionScope.userID}"> X  &nbsp;</a></td>
+              					<td> <a style = "color: green;" href = "${pageContext.request.contextPath}/userinfo/donetodo.do?todolist=${todo.todolist}&userid=${sessionScope.userID}"> <i class="fa fa-check" style="font-size:10px"></i> </a></td> 
+              				</tr>
+              			</table>
+              		</c:forEach>
+              	</c:when>
+              </c:choose>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="helpText col-12">
-          <p id="first">
-            Enter text into the input field to add items to your list.
-          </p>
-          <p id="second">Click the item to mark it as complete.</p>
-          <p id="third">
-            Click the "X" to remove the item from your list.
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <input
-            id="userInput"
-            type="text"
-            placeholder="New item..."
-            maxlength="27"
-          />
-          <button id="enter">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Empty List -->
-      <div class="row">
-        <div class="listItems col-12">
-          <ul
-            id="myList"
-            class="col-12 offset-0 col-sm-8 offset-sm-2"
-          ></ul>
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript" src="/js/wrapper3_script.js"></script>
-  </div>
-</div>
-</div>
 <!-- wrapper class end -->
   </body>
 </html>

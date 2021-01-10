@@ -19,6 +19,8 @@ body {
   font-size: 15px;
   color: #999;
   margin: 0;
+  overflow: hidden;
+
 }
 
 :focus {
@@ -72,12 +74,12 @@ textarea {
 
 /* 오늘의 근황 섹션 content box 의 위치 설정  */
 .wizard {
-  /* 화면의 반으로 지정  */
-  position: relative;
-  top: 20px;
-  left: 6%;
-  right: 0px;
-  width: 40%;
+    position: fixed;
+    top: 150px;
+    left: 100px;
+    right: 0px;
+    width: 750px;
+    border: 1px solid #658DC6;
 }
 
 /* 진행 상황 update 표시  */
@@ -177,7 +179,6 @@ textarea {
 }
 
 h3 {
-  font-family: "Muli-SemiBold";
   font-size: 22px;
   color: black;
   text-transform: uppercase;
@@ -185,11 +186,24 @@ h3 {
   padding: 5px 15px;
   display: inline-block;
   border-bottom: 2px solid lightgray;
-  margin-bottom: 75px;
+}
+
+.info {
+	margin-top: 15px;
+	font-size: 20px;
+	color: black;
+}
+
+span {
+	color: #658dc6;
+}
+
+.printinfo {
+	text-align: center;
+    margin-left: 150px;
 }
 
 p {
-  font-family: "Muli-SemiBold";
   font-size: 20px;
   color: #658dc6;
   text-align: center;
@@ -291,15 +305,36 @@ textarea.form-control {
   bottom: 55px;
   left: 300px;
 }
+
+
 .actions ul {
   display: flex;
 }
+
+.submit {
+    padding: 0 !important;
+    border: none !important;
+    /* display: inline-flex !important; */
+    height: 42px !important;
+    width: 135px !important;
+    align-items: center !important;
+    background: #658DC6 !important;
+    /* font-family: "Muli-SemiBold" !important; */
+    color: white !important;
+    cursor: pointer !important;
+    /* position: relative !important; */
+    /* padding-left: 28px !important; */
+    margin-left: 405px;
+    margin-top: 297px;
+}
+
+
 .actions li a {
   padding: 0;
   border: none;
   display: inline-flex;
   height: 41px;
-  width: 135px;
+  width: 135px !important;
   align-items: center;
   background: #e9e0cf;
   font-family: "Muli-SemiBold";
@@ -313,13 +348,14 @@ textarea.form-control {
   position: absolute;
   top: 14px;
   right: 28px;
+  
   font-family: Material-Design-Iconic-Font;
 }
 .actions li a:hover {
   background: #cfc7b8;
 }
 .actions li:first-child a {
-  width: 144px;
+  width: 135px;
   padding-left: 48px;
 }
 .actions li:first-child a:before {
@@ -335,11 +371,11 @@ textarea.form-control {
 }
 .actions li:last-child a {
   width: 124px;
-  background: #6d7f52;
-  color: #fff;
+  background: #658DC6;
+  color: white;
 }
 .actions li:last-child a:hover {
-  background: #849963;
+  background: #658DC6;
 }
 .actions li:last-child a:before {
   content: "\f26b";
@@ -353,11 +389,11 @@ textarea.form-control {
   transition: all 1s;
 }
 .actions li[aria-disabled="false"] ~ li a {
-  background: #6d7f52;
-  color: #fff;
+  background: #658DC6;
+  color: white;
 }
 .actions li[aria-disabled="false"] ~ li a:hover {
-  background: #849963;
+  background: #658DC6;
 }
 
 .checkbox-tick label {
@@ -597,13 +633,14 @@ nav {
   width: 100%;
   height: 60px;
   border-bottom: 1px solid #cbcbcb;
+  position: fixed;
 }
 nav .leftMenu {
   float: left;
   height: 100%;
   font-size: 15px;
   font-weight: bold;
-  margin-left: 5%;
+    margin-left: 160px;
 }
 nav .leftMenu > li {
   width: auto;
@@ -656,21 +693,23 @@ nav .leftMenu > li.active {
 /* //nav */
 
 .main .split_two {
-  float: right;
-  margin-top: -680px;
-  width: 50%;
+    float: left;
+    /* margin-top: 14px; */
+    /* position: fixed; */
 }
 /* wrapper 2 css */
 .wrapper2 {
-  height: 700px;
-  float: left;
-  position: relative;
-  margin-bottom: 20px;
-  width: 350px;
-  margin-right: 0px;
-  margin-left: -33px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  text-align: center;
+    height: 700px;
+    float: left;
+    position: fixed;
+    /* margin-bottom: 20px; */
+    width: 350px;
+    /* margin-right: 0px; */
+    margin-top: 16px;
+    margin-left: 870px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+    border: 1px solid #658DC6;
 }
 
 .wrapper2 h3 {
@@ -694,17 +733,19 @@ nav .leftMenu > li.active {
 .helpText p {
   font-family: "Muli-SemiBold";
   font-size: 13px;
-  color: #658dc6;
+  color: gray;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 0px !important;
+  margin-top: 15px !important;
 }
 
 #enter {
   border: none;
   padding: 5px 15px;
   border-radius: 5px;
-  color: #04a1bf;
-  background-color: #025f70;
+  color: white;
+  height: 35px;
+  background-color: #658dc6;
   transition: all 0.75s ease;
   -webkit-transition: all 0.75s ease;
   -moz-transition: all 0.75s ease;
@@ -767,11 +808,13 @@ nav .leftMenu > li.active {
 }
 
 .wrapper3 input {
-  border-radius: 5px;
-  min-width: 71%;
-  padding: 5px;
-  border: 2px solid lightgray;
-  margin-left: 10%;
+	border-radius: 5px;
+    min-width: 300px;
+    padding: 5px;
+    border: 2px solid lightgray;
+    margin-left: 5px;
+    margin-top: 10px;
+    font-size: 15px;		
 }
 
 .doneList {
@@ -785,10 +828,51 @@ nav .leftMenu > li.active {
 
 /* wrapper3 css */
 .wrapper3 {
-  height: 700px;
-  width: 420px;
-  float: right;
-  margin-right: 12%;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      height: 700px;
+    width: 420px;
+    position: fixed;
+    float: left;
+    margin-left: 1240px;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid #658DC6;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
+
+canvas{border: 1px solid gray;border-radius: 3px;}
+
+.list_t {
+    padding: 10px !important;
+    margin-bottom: 5px !important;
+}
+
+.list_t:hover {
+    background-color: #B5c7d3;
+}
+
+.to_table {
+	margin-left: 27px;
+	border-collapse: collapse;
+	border: 1px solid #658DC6 !important;
+	border-radius: 20px;
+	margin-top: 15px;
+	
+	
+}
+
+td {
+	text-align: center;
+    padding: 9px;
+   }
+
+.listItems {
+  overflow: scroll;
+  height: 470px;
+}
+
+.doneStyle {
+	margin-bottom: 5px;
+}
+
+  
+

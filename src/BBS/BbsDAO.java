@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
-
 
 public class BbsDAO {
 	private Connection conn;
@@ -38,7 +36,7 @@ public class BbsDAO {
 		try {
 			connDB();
 			String query = "SELECT bbs_num,userid,bbs_title,bbs_content,bbs_re_count, bbs_date, bbs_seen" 
-			             + " from bbs"
+			             + " from bbs where bbs_title != '답변'"
 					     + " ORDER BY bbs_num DESC";
 			//오라클의 계층형 sql문을 실행한다
 			System.out.println(query);
@@ -207,6 +205,112 @@ public class BbsDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public int insertNewComment(BbsVO comment) {
+		int commentNO = 0;
+		
+		try {
+			connDB();
+			int parentNO = comment.getParentNO();
+			int bbs_num = getNewArticleNO();
+			String bbs_content = comment.getBbs_content();
+			String userid = comment.getUserid();
+			commentNO = getNewCommentNO(parentNO);
+			System.out.println(commentNO);
+			String bbs_title = comment.getBbs_title();
+			String bbs_seen = comment.getBbs_seen();
+			
+			String query = "INSERT INTO bbs (bbs_num, bbs_content, userid, bbs_commentNO, bbs_title, bbs_seen, parentNO)"
+					+ " VALUES (?, ? ,?, ?, ?, ?,?)";
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bbs_num);
+			pstmt.setString(2, bbs_content);
+			pstmt.setString(3, userid);
+			pstmt.setInt(4, commentNO);
+			pstmt.setString(5, bbs_title);
+			pstmt.setString(6, bbs_seen);
+			pstmt.setInt(7, parentNO);
+			pstmt.executeUpdate();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		return commentNO;
+	}
+	
+	// 게시글 번호 생성하기 
+		private int getNewCommentNO(int parentNO) {
+			try {
+				connDB();
+				String query = "SELECT max(bbs_commentNO) from bbs where parentNO =? ";
+				System.out.println(query);
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, parentNO);
+				ResultSet rs = pstmt.executeQuery();
+				if (rs.next())
+					return (rs.getInt(1) + 1);
+				rs.close();
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return 0;
+		}
+		
+		public List findAllComments(int articleNO) {
+			List commentList = new ArrayList();
+			try {
+				connDB();
+				String query = "SELECT bbs_content, bbs_date ,userid, bbs_commentNO" 
+				             + " from bbs where parentNO=? and bbs_title='답변'"
+						     + " ORDER BY bbs_commentNO ASC";
+				//오라클의 계층형 sql문을 실행한다
+				System.out.println(query);
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, articleNO);
+				ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {
+					int bbs_commentNO = rs.getInt("bbs_commentNO");
+					String bbs_content = rs.getString("bbs_content");
+					String userid = rs.getString("userid");
+					Date bbs_date = rs.getDate("bbs_date");
+					BbsVO comment = new BbsVO();
+					comment.setParentNO(articleNO);
+					comment.setUserid(userid);
+					comment.setBbs_content(bbs_content);
+					comment.setBbs_date(bbs_date);
+					comment.setBbs_commentNO(bbs_commentNO);
+					commentList.add(comment);
+				}
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return commentList;
+		}
+		
+		// 댓글 지우기 
+		public void deleteComment(int bbs_commentNO) {
+			try {
+				connDB();
+				System.out.println(bbs_commentNO);
+				String query = "DELETE FROM bbs ";
+				query += "WHERE bbs_commentNO=? ";
+				System.out.println(query);
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, bbs_commentNO);
+				pstmt.executeUpdate();
+				pstmt.close();
+				conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
 	
 	
 	

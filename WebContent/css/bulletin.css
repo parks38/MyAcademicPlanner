@@ -28,6 +28,7 @@ a {
 body {
   min-height: 100vh;
   position: relative;
+  overflow:hidden;
 }
 input {
   font-size: 18px;
@@ -78,6 +79,7 @@ nav {
 }
 nav .leftMenu {
   float: left;
+  position: fixed;
   height: 100%;
   font-size: 15px;
   font-weight: bold;

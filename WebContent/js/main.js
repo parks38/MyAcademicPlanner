@@ -10,9 +10,9 @@ $(function(){
         enableAllSteps: true,
         transitionEffectSpeed: 500,
         labels: {
-            finish: "Submit",
-            next: "Forward",
-            previous: "Backward"
+            finish: "제출",
+            next: "다음",
+            previous: "이전"
         }
     });
     $('.wizard > .steps li a').click(function(){
@@ -36,10 +36,12 @@ $(function(){
     });
     $('.select .select-control').click(function(){
         $(this).parent().next().toggle();
-    })    
+    })
     $('.select .dropdown li').click(function(){
         $(this).parent().toggle();
         var text = $(this).attr('rel');
         $(this).parent().prev().find('div').text(text);
     })
+    
+    
 })

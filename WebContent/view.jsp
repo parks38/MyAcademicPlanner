@@ -23,8 +23,13 @@
 	 }
    	
      function backToList(obj){
-	    obj.action="${contextPath}/boards/viewArticle.do";
+	    obj.action="${contextPath}/boards/listArticles.do";
 	    obj.submit();
+     }
+     
+     function fn_comment(obj){
+    	 obj.action = "${contextPath}/boards/addComment.do";
+    	 obj.submit();
      }
  
 	 function fn_enable(obj){
@@ -72,28 +77,26 @@
 	     }
      } 
 	 
-	// 댓글 등록
-     function writeCmt(obj)
-     {
-         var form = document.getElementById("writeCommentForm");
-         
-         var board = form.comment_board.value
-         var id = form.comment_id.value
-         var content = form.comment_content.value;
-         
-         if(!content)
-         {
-             alert("내용을 입력하세요.");
-             return false;
-         }
-         else
-         {    
-             var param="comment_board="+board+"&comment_id="+id+"&comment_content="+content;
-                 
-    		 obj.action="${contextPath}/comments/addComments.do?" + param;
-    		 obj.submit(); 
-         }
-     }
+	 function removeComment(url, bbs_commentNO, parentNO) {
+		 var form = document.createElement("form");
+		 form.setAttribute("method", "post");
+		 form.setAttribute("action", url);
+	     var articleNOInput = document.createElement("input");
+	     articleNOInput.setAttribute("type","hidden");
+	     articleNOInput.setAttribute("name","bbs_commentNO");
+	     articleNOInput.setAttribute("value", bbs_commentNO);
+	     
+	     var bbs_numInout = document.createElement("input");
+	     articleNOInput.setAttribute("type","hidden");
+	     articleNOInput.setAttribute("name","bbs_num");
+	     articleNOInput.setAttribute("value", parentNO);
+		 
+	     form.appendChild(articleNOInput);
+	     form.appendChild(bbs_numInout);
+	     document.body.appendChild(form);
+	     form.submit();
+	 }
+    
 
 
      </script> 
@@ -190,17 +193,18 @@
                 <tr height="1" bgcolor="#dddddd">
                     <td colspan="5" width="100%"></td>
                 </tr> 
-
+ 
                 <tr> <td width="0">&nbsp;</td> 
                     <td align="center" width="120"><b>첨부 파일</b></td> 
-                    <td width="500"><input  type= hidden  name="originalFile" value="${article.bbs_file }" disabled/>
-                    <a href = "#this" class= "link" name = "originalFile"> ${article.bbs_file }</a>
+                    <td width="500"><%--<input  type= hidden  name="originalFile" value="${article.bbs_file }" disabled/>
+                    <a href = "#this" class= "link" name = "originalFile"> ${article.bbs_file } --%></a>
                     </td>
                     <td align="left" width="120"><b>수정 파일</b></td> 
                     <td width="500"><input  type= "file"   name="file" id = "i_FileName" value="${article.bbs_file }" disabled/> </td>
                 </tr> 
+               
             </table>
-                            
+                           
                 <div style= "height: 2px; background-color:#dddddd; width:895px; margin-left:48px;"></div> 
                 <c:if test="${not empty article.bbs_file2 && article.bbs_file2!='null' }">  
 		                <table class = "image-table">
@@ -242,11 +246,11 @@
         	<div  class="post-actions__widget" >
         		<div id = "tr_btn">
 				    <input type=button class="btn post-actions__publish" value = "목록"  onClick="backToList(this.form)">
-				     <c:if test="${sessionScope.sessionID == article.userid}">
-					    <input type=button class="btn post-actions__publish" value="수정" onClick="javascript:fn_enable(this.form)">	    			
+<%-- 				     <c:if test="${sessionScope.userID == article.userid}">
+ --%>					    <input type=button class="btn post-actions__publish" value="수정" onClick="javascript:fn_enable(this.form)">	    			
 		    			<input type=button class="btn post-actions__publish" value="삭제" onClick="fn_remove_article('${contextPath}/boards/removeArticle.do', ${article.bbs_num})">
-	        		</c:if>
-	        	</div>
+<%-- 	        		</c:if>
+ --%>	        	</div>
         	
            <div id="tr_btn_modify">
                 <input type="button" class="btn post-actions__publish" value="수정 완료"   onClick="fn_modify_article(frmArticle)"  >
@@ -262,54 +266,60 @@
           <h2>댓글창</h2>
         </div>
         <div class="chatContent">
-		<c:if test="${requestScope.commentList != null}">
-			<c:forEach var="comment" items="${requestScope.commentList}">
-            <tr>
-                <!-- 아이디, 작성날짜 -->
-                <td width="150">
-                    <div>
-                        ${comment.userid}<br>
-                    </div>
-                </td>
-                <!-- 본문내용 -->
-                <td width="300px">
-                    <div class="text_wrapper">
-                        ${comment.content}
-                    </div>
-                </td>
-                <!-- 버튼 -->
-                <td width="100">
-                    <div id="btn" style="text-align:center;">
-                        <font size ="1" color = "lightgray"> ${comment.writeDate }</font>
-                    <c:if test="${comment.userid == sessionScope.sessionID}">
-                        <a href="#">[X]</a>
-                    </c:if>        
-                    </div>
-                </td>
-            </tr>
+		<c:if test="${commentList != null}">
+			<c:forEach var="comment" items="${commentList}">
+			<table>
+	            <tr>
+	                <!-- 아이디, 작성날짜 -->
+	                <td width="150">
+	                    <div>
+	                        ${comment.userid}<br>
+	                    </div>
+	                </td>
+	                <!-- 본문내용 -->
+	                <td width="300px">
+	                    <div class="text_wrapper">
+	                        ${comment.bbs_content}
+	                    </div>
+	                </td>
+	                <!-- 버튼 -->
+	                <td width="100">
+	                    <div id="btn" style="text-align:center;">
+	                        <font size ="1" color = "lightgray"> ${comment.bbs_date }</font>
+	                    <c:if test="${comment.userid == sessionScope.userID}">
+	                        <a class = "close" href = "${pageContext.request.contextPath}/boards/removeComment.do?bbs_num=${article.bbs_num}&bbs_commentNO=${comment.bbs_commentNO}">X</a>
+	                    </c:if>        
+	                    </div>
+	                </td>
+	            </tr>
+            </table>
             
         </c:forEach>
 		</c:if>
 
         </div>
         <div class="chatText">
-<%--         	<c:if test = "${sessionScope.sessionID != mull }">
- --%>        	<form action = "comment.do" method = "post" name = "frm">
-	        		<input type = "hidden" name = "comment_board" value = "${article.bbs_num }" />
-	        		<input type = "hidden" name = "comment_id" value = "${sessionScope.sessionID }" />
-	        		<textarea name="comment_content" class="chatTextArea" placeholder="댓글을 달아주세요" id = "textarea" > </textarea>
-        		
-        	<%-- </c:if> 
-        	<c:if test = "${sessionScope.sessionID == null }" > 
-        		<textarea name="post" class="chatTextArea" placeholder="로그인 후 이용해주세요" id = "textarea" disabled> </textarea>
-        	</c:if>--%>
-          
+         	<c:if test = "${sessionScope.userID != null }">
+        	<form method = "post" name = "form" action="${contextPath}"  enctype="utf-8">
+	        		<input type = "hidden" name = "bbs_num" value = "${article.bbs_num }" />
+	        		<input type = "hidden" name = "title" value = "답변" />
+	        		<input type = "hidden" name = "bbs_seen" value = "공개" />
+	        		
+	        		<input type = "hidden" name = "userid" value = "${sessionScope.userID }" />
+	        		<textarea name="bbs_content" class="chatTextArea" placeholder="댓글을 달아주세요" id = "textarea" > </textarea>
+		        		
+		     </c:if> 
+		     
+		     <c:if test = "${sessionScope.userID == null }" > 
+		        	<textarea name="post" class="chatTextArea" placeholder="로그인 후 이용해주세요" id = "textarea" disabled> </textarea>
+		      </c:if>
+		          
 
        
-        <div class="submit">
-          <a href = "" class="btn post-action_publish" onclick="writeCmt(this.form)">댓글 등록</a>
-        </div>
-        </form>
+		        <div class="submit">
+		          <input type = "button" class="btn post-action_publish" OnClick = "fn_comment(form)" value = "댓글 등록">
+		        </div>
+       		 </form>
          </div>
       </div>
       </div>

@@ -2,6 +2,7 @@ package Member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,9 +17,11 @@ public class MemberController extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	MemberDAO memberDAO; 
+	MemberService memberService;
 
 	public void init() throws ServletException {
 		memberDAO = new MemberDAO();
+		memberService = new MemberService();
 	}
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException {
@@ -56,7 +59,7 @@ public class MemberController extends HttpServlet{
 	        		if(result == 1) { //로그인 성공 - 세션 부여 
 	        			session = request.getSession();
 	        			session.setAttribute("userID", id); // 객체에 바인딩 
-	        			nextPage = "/index.jsp";
+	        			nextPage = "/daily.jsp";
 	        		} else if (result == 0) {
 	        			PrintWriter pw = response.getWriter();
 	        			pw.println("<script>");
@@ -95,8 +98,8 @@ public class MemberController extends HttpServlet{
 		          //회원 등록후 다시 회원 목록을 출력 
 		            PrintWriter pw = response.getWriter();
 	        		pw.print("<script>" + "location.href = '" + request.getContextPath() 
-	        				+ "/index.jsp';" + "</script>");
-	        		nextPage = "/index.jsp";
+	        				+ "/login.jsp';" + "</script>");
+	        		nextPage = "/login.jsp";
 	        		return;
 		           
 		            
@@ -109,7 +112,11 @@ public class MemberController extends HttpServlet{
 				pw.println("</script>");
 				return;
 	    		
-	        } 
+	        } else if (action.equals("/viewMember.do")) {
+	        	List<MemberVO> memberList = memberService.listMember();
+        		request.setAttribute("memberList", memberList);
+        		nextPage = "/student_list.jsp";
+	        }
 	        RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
         	dispatch.forward(request, response);
         } catch (Exception e) {

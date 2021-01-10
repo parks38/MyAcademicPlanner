@@ -62,7 +62,7 @@
             <a href="${pageContext.request.contextPath}/calendar.jsp">달력</a>
           </li>
           <li class="dropBox">
-            <a href="${pageContext.request.contextPath}/student_list.jsp">학생 정보 </a>
+            <a href="${pageContext.request.contextPath}/users/viewMember.do">학생 정보 </a>
           </li>
         </ul>
       </div>
