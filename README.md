@@ -49,10 +49,13 @@
 
 
 <br>
+
 ### 📌  시스템 기능
+<br>
 <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Screen_Shot_2021-03-02_at_9.02.51_PM.png" width="500px">
 
 
+<br>
 ### ⭐ 메인 페이지
 
  - 로그인을 통해 사용자의 출석 현황 체크 가능 
