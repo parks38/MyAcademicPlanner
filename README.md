@@ -65,7 +65,7 @@
 
  - To Do list 트래킹과 최근 완료한 일 확인 
 
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 1.png" width="500px">
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 1.png" width="700px">
 
 <br>
 
@@ -77,7 +77,7 @@
         <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 2.png" width="500px">
         </th>
         <th>
-        <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 3.png" width="500px">
+        <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 3.png" width="400px">
         </th>
 </tr>
 </table>
