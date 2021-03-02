@@ -25,7 +25,7 @@
 ![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled.png)
 
 ### 📌  개발 환경
-<img alt="Lua" src="https://img.shields.io/badge/lua-%232C2D72.svg?&style=for-the-badge&logo=eclipse&logoColor=white"/>
+<img alt="Lua" src="https://img.shields.io/badge/eclipse-%232C2D72.svg?&style=for-the-badge&logo=eclipse&logoColor=white"/>
 
 <p>
     <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"/>&nbsp;
@@ -36,7 +36,7 @@
 
 <p>
     <img alt="Oracle" src ="https://img.shields.io/badge/oracle%20-%23F00000.svg?&style=for-the-badge&logo=oracle&logoColor=white" />&nbsp;
-    <img alt="C#" src="https://img.shields.io/badge/Tomcat%23%20-%23239120.svg?&style=for-the-badge&logo=&logoColor=white"/>
+    <img alt="C#" src="https://img.shields.io/badge/Tomcat-%23239120.svg?&style=for-the-badge&logo=&logoColor=white"/>
 </p>
 <p>
     <img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>&nbsp;
