@@ -9,6 +9,7 @@
 프로젝트이름 유캔두잇 은 서비스를 통해 본인의 계획을 체계적으로 진행하여 성공을 기원하는
 
 응원의 메세지를 담고 있다. “you can do it” 🤞🏻
+<br>
 
 ### 📌  서비스의 기능
 
@@ -23,6 +24,7 @@
 - **학생 들 정보 확인**
 
 <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled.png" width="300px">
+<br>
 
 ### 📌  개발 환경
 <img alt="Lua" src="https://img.shields.io/badge/eclipse-%232C2D72.svg?&style=for-the-badge&logo=eclipse&logoColor=white"/>
@@ -46,10 +48,10 @@
 </p>
 
 
-
+<br>
 ### 📌  시스템 기능
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Screen_Shot_2021-03-02_at_9.02.51_PM.png" width="500px">
 
-![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Screen_Shot_2021-03-02_at_9.02.51_PM.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Screen_Shot_2021-03-02_at_9.02.51_PM.png)
 
 ### ⭐ 메인 페이지
 
@@ -59,13 +61,16 @@
 
  - To Do list 트래킹과 최근 완료한 일 확인 
 
-![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%201.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%201.png)
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled1.png" width="500px">
+
 
 ### ⭐ 회원 가입
 
-![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%202.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%202.png)
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled2.png" width="500px">
 
-![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%203.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%203.png)
+
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled3.png" width="500px">
+
 
 ### ⭐ 게시판
 
@@ -73,13 +78,15 @@
 
  - 해당 포스트에 대한 댓글 창 
 
-![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%204.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%204.png)
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled4.png" width="500px">
+
 
 ### ⭐ 학생 정보
 
  - 같은 반을 수강하고 있는 학생들에 대한 정보 열람 
 
-![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%205.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled%205.png)
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled5.png" width="500px">
+
 
 ### 📌  참고 프레젠테이션
 
