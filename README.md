@@ -56,6 +56,7 @@
 
 
 <br>
+
 ### ⭐ 메인 페이지
 
  - 로그인을 통해 사용자의 출석 현황 체크 가능 
@@ -64,15 +65,15 @@
 
  - To Do list 트래킹과 최근 완료한 일 확인 
 
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled1.png" width="500px">
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 1.png" width="500px">
 
 
 ### ⭐ 회원 가입
 
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled2.png" width="500px">
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 2.png" width="500px">
 
 
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled3.png" width="500px">
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 3.png" width="500px">
 
 
 ### ⭐ 게시판
@@ -81,14 +82,14 @@
 
  - 해당 포스트에 대한 댓글 창 
 
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled4.png" width="500px">
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 4.png" width="500px">
 
 
 ### ⭐ 학생 정보
 
  - 같은 반을 수강하고 있는 학생들에 대한 정보 열람 
 
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled5.png" width="500px">
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 5.png" width="500px">
 
 
 ### 📌  참고 프레젠테이션
