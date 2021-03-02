@@ -22,7 +22,7 @@
 - **할일 목록**
 - **학생 들 정보 확인**
 
-![readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled.png](readme%20=%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%2008281673b5814b25921e3beb4cbc8bef/Untitled.png)
+<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled.png">
 
 ### 📌  개발 환경
 <img alt="Lua" src="https://img.shields.io/badge/eclipse-%232C2D72.svg?&style=for-the-badge&logo=eclipse&logoColor=white"/>
