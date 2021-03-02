@@ -67,14 +67,21 @@
 
 <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 1.png" width="500px">
 
+<br>
 
 ### ⭐ 회원 가입
-
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 2.png" width="500px">
-
-
-<img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 3.png" width="500px">
-
+<br>
+<table>
+    <tr>
+        <th>
+        <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 2.png" width="500px">
+        </th>
+        <th>
+        <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 3.png" width="500px">
+        </th>
+</tr>
+</table>
+<br>
 
 ### ⭐ 게시판
 
@@ -84,6 +91,7 @@
 
 <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 4.png" width="500px">
 
+<br>
 
 ### ⭐ 학생 정보
 
@@ -91,6 +99,7 @@
 
 <img src="/readme = 프로젝트 08281673b5814b25921e3beb4cbc8bef/Untitled 5.png" width="500px">
 
+<br>
 
 ### 📌  참고 프레젠테이션
 
