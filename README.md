@@ -29,7 +29,8 @@
 
 <p>
     <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"/>&nbsp;
-      <img alt="JSP" src="https://img.shields.io/badge/java-%23CC342D.svg?&style=for-the-badge&logo=JSP-Servlets&logoColor=white"/>&nbsp;
+      <img alt="JSP" src="https://img.shields.io/badge/java-%23CC342D.svg?&style=for-the-badge&logo=JSP&logoColor=white"/>&nbsp;
+    <img alt="JSP" src="https://img.shields.io/badge/java-%23CC342D.svg?&style=for-the-badge&logo=Servlets&logoColor=white"/>&nbsp;
   
  </p>
 
