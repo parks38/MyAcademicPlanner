@@ -29,13 +29,14 @@
 
 <p>
     <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"/>&nbsp;
-      <img alt="JSP" src="https://img.shields.io/badge/java-%23CC342D.svg?&style=for-the-badge&logo=JSP&logoColor=white"/>&nbsp;
-    <img alt="JSP" src="https://img.shields.io/badge/java-%23CC342D.svg?&style=for-the-badge&logo=Servlets&logoColor=white"/>&nbsp;
+      <img alt="JSP" src="https://img.shields.io/badge/jsp-%23CC342D.svg?&style=for-the-badge&logo=JSP&logoColor=white"/>&nbsp;
+    <img alt="JSP" src="https://img.shields.io/badge/servlets-%23CC342D.svg?&style=for-the-badge&logo=Servlets&logoColor=white"/>&nbsp;
   
  </p>
 
 <p>
     <img alt="Oracle" src ="https://img.shields.io/badge/oracle%20-%23F00000.svg?&style=for-the-badge&logo=oracle&logoColor=white" />&nbsp;
+    <img alt="C#" src="https://img.shields.io/badge/Tomcat%23%20-%23239120.svg?&style=for-the-badge&logo=&logoColor=white"/>
 </p>
 <p>
     <img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>&nbsp;
